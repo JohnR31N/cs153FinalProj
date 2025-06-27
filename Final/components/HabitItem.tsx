@@ -72,10 +72,10 @@ export default function HabitItem({
       >
         <View style={{ flex: 1 }}>
           <Text style={styles.name}>{name}</Text>
-          <Text style={styles.reminder}>Scheduled Time: {reminder}</Text>
-          <Text style={styles.count}>Completion: {count}</Text>
+          <Text style={styles.reminder}> Scheduled Time: {reminder}</Text>
+          <Text style={styles.count}> Completion: {count}</Text>
           
-          <Text style={styles.missed}>Forgot: {missedCount}</Text>
+          <Text style={styles.missed}> Forgot: {missedCount}</Text>
           
         </View>
 

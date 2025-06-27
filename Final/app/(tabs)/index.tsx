@@ -61,7 +61,6 @@ export default function HomeScreen() {
     }, [currentDate])
   );
 
-  // check time change to verify date change
   useEffect(() => {
     const interval = setInterval(async () => {
       const today = new Date().toISOString().split('T')[0];
@@ -147,33 +146,77 @@ export default function HomeScreen() {
 
   return (
     <SafeAreaView style={styles.container}>
+      <Text style={styles.dateHeaderBig}>Tasker</Text>
+      <Text style={styles.dateHeader}>{currentDate}</Text>
+
       <TouchableOpacity
         style={styles.addButton}
         onPress={() => router.push('/add')}
       >
-        <Ionicons name="add-circle-outline" size={20} color="white" />
-        <Text style={styles.buttonText}>Add Habit</Text>
+        <Ionicons name="add-circle-outline" size={22} color="white" />
+        <Text style={styles.buttonText}>Add New Habit</Text>
       </TouchableOpacity>
 
       <FlatList
         data={habits}
         keyExtractor={(item) => item.id}
         renderItem={renderItem}
-        contentContainerStyle={{ paddingBottom: 80 }}
+        contentContainerStyle={styles.listContent}
+        ListEmptyComponent={
+          <Text style={styles.emptyText}>No habits added yet.</Text>
+        }
       />
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: 'white', padding: 20 },
+  container: {
+    flex: 1,
+    backgroundColor: '#f6f8fa',
+    paddingHorizontal: 16,
+    paddingTop: 12,
+  },
+  dateHeader: {
+    fontSize: 20,
+    fontWeight: '600',
+    marginBottom: 12,
+    color: '#333',
+  },
+  dateHeaderBig: {
+    fontSize: 25,
+    fontWeight: '600',
+    marginBottom: 12,
+    color: '#333',
+  },
   addButton: {
-    backgroundColor: '#2196F3',
-    padding: 12,
-    borderRadius: 10,
+    backgroundColor: '#1e88e5',
+    paddingVertical: 12,
+    paddingHorizontal: 16,
+    borderRadius: 12,
     alignItems: 'center',
     flexDirection: 'row',
     justifyContent: 'center',
+    marginBottom: 16,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.15,
+    shadowRadius: 4,
+    elevation: 4,
   },
-  buttonText: { color: 'white', fontSize: 16, marginLeft: 6 },
+  buttonText: {
+    color: 'white',
+    fontSize: 17,
+    marginLeft: 8,
+    fontWeight: '500',
+  },
+  listContent: {
+    paddingBottom: 100,
+  },
+  emptyText: {
+    textAlign: 'center',
+    fontSize: 16,
+    color: '#888',
+    marginTop: 40,
+  },
 });

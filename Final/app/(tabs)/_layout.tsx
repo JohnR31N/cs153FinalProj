@@ -11,14 +11,14 @@ export default function Layout() {
     <View style={styles.container}>
       <Tabs screenOptions={{ headerShown: false }}>
         <Tabs.Screen
-          name="(tabs)/Habits"
+          name="index"
           options={{
             title: 'Habits',
             tabBarIcon: ({ color, size }) => <Ionicons name="menu" color={color} size={size} />,
           }}
         />
         <Tabs.Screen
-          name="(tabs)/History"
+          name="history"
           options={{
             title: 'Log History',
             tabBarIcon: ({ color, size }) => <Ionicons name="time" color={color} size={size} />,

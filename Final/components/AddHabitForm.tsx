@@ -15,7 +15,7 @@ import { useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { addHabit } from '@/utils/storage';
 
-// Ask dor permission
+// Ask for permission
 const useNotificationPermission = () => {
   useEffect(() => {
     const requestPermission = async () => {
