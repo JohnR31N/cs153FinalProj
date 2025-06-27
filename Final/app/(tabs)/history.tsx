@@ -6,6 +6,7 @@ import {
   FlatList,
   Alert,
   TouchableOpacity,
+  SafeAreaView,
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { getHabits, Habit, clearAllLogs } from '@/utils/storage';
@@ -74,13 +75,13 @@ export default function HistoryScreen() {
   );
 
   return (
-    <View style={styles.container}>
-      <View style={styles.clearRow}>
+    <SafeAreaView style={styles.container}>
+      <SafeAreaView style={styles.clearRow}>
         <TouchableOpacity style={styles.clearButton} onPress={handleClear}>
           <Ionicons name="trash-outline" size={18} color="white" />
           <Text style={styles.clearButtonText}>Clear All</Text>
         </TouchableOpacity>
-      </View>
+      </SafeAreaView>
 
       <FlatList
         data={historyData}
@@ -88,7 +89,7 @@ export default function HistoryScreen() {
         renderItem={renderItem}
         contentContainerStyle={{ paddingBottom: 100 }}
       />
-    </View>
+    </SafeAreaView>
   );
 }
 
@@ -110,7 +111,7 @@ const styles = StyleSheet.create({
     color: '#555',
   },
   clearRow: {
-    marginBottom: 16,
+    marginBottom: 26,
     alignItems: 'flex-end',
   },
   clearButton: {
